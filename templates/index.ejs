@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokemon App</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: yellow;
+    }
+
+    form {
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: white
+    }
+
+    input {
+      padding: 10px;
+      width: 200px;
+    }
+
+    button {
+      padding: 8px 12px;
+      background-color: yellow;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+
+    h2 {
+      color: red;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Pokemon App</h1>
+
+  <form action="/add-pokemon" method="post">
+    <label for="pokemonName">Pokemon Name:</label>
+    <input type="text" id="pokemonName" name="pokemonName" required>
+    <button type="submit">Add Pokemon</button>
+  </form>
+<br>
+  <form action="/remove" method="post">
+    <button type="submit">Remove All Pokemon</button>
+  </form>
+
+  <h2>Pokemon List</h2>
+  <ul>
+    <% pokemons.forEach(pokemon => { %>
+    <li class="<%= pokemon.name.toLowerCase() %>">
+      <%= pokemon.name %> - Type: <%= pokemon.type %>
+    </li>
+    <% }); %>
+  </ul>
+</body>
+
+</html>
